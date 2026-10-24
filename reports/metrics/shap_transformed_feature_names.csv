@@ -1,0 +1,14 @@
+feature
+numeric__age
+numeric__pulse_rate
+numeric__systolic_bp
+numeric__diastolic_bp
+numeric__glucose
+numeric__bmi
+numeric__family_diabetes
+numeric__hypertensive
+numeric__family_hypertension
+numeric__cardiovascular_disease
+numeric__stroke
+categorical__gender_Female
+categorical__gender_Male

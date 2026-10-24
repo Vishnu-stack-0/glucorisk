@@ -1,0 +1,31 @@
+{
+  "logistic_regression": {
+    "roc_auc": 0.8534855484482351,
+    "pr_auc": 0.4107561127601816,
+    "best_params": {
+      "model__C": 0.001,
+      "model__penalty": "l2",
+      "model__solver": "liblinear"
+    },
+    "cv_roc_auc": 0.8661297398694525
+  },
+  "xgboost": {
+    "roc_auc": 0.8740819710968964,
+    "pr_auc": 0.4826866854794396,
+    "best_params": {
+      "model__subsample": 0.9,
+      "model__n_estimators": 200,
+      "model__min_child_weight": 5,
+      "model__max_depth": 3,
+      "model__learning_rate": 0.03,
+      "model__colsample_bytree": 0.8
+    },
+    "cv_roc_auc": 0.8819789390725378
+  },
+  "selection_metric": "mean training cross-validation ROC-AUC",
+  "cv_roc_auc": {
+    "logistic_regression": 0.8661297398694525,
+    "xgboost": 0.8819789390725378
+  },
+  "selected_model": "xgboost"
+}

@@ -1,0 +1,21 @@
+{
+    "model_name": "xgboost",
+    "test_patient_count": 1075,
+    "explained_patient_count": 200,
+    "original_feature_count": 12,
+    "transformed_feature_count": 13,
+    "test_accuracy": 0.8688372093023256,
+    "test_roc_auc": 0.8740819710968964,
+    "top_10_features": [
+        "numeric__glucose",
+        "numeric__hypertensive",
+        "numeric__diastolic_bp",
+        "numeric__bmi",
+        "numeric__age",
+        "numeric__systolic_bp",
+        "categorical__gender_Female",
+        "numeric__pulse_rate",
+        "categorical__gender_Male",
+        "numeric__family_diabetes"
+    ]
+}

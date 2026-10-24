@@ -1,0 +1,14 @@
+feature,mean_abs_shap
+numeric__glucose,0.11960528473610367
+numeric__hypertensive,0.04603060530964284
+numeric__diastolic_bp,0.04194735313416459
+numeric__bmi,0.04184282231129084
+numeric__age,0.03969402255956084
+numeric__systolic_bp,0.021955481316739075
+categorical__gender_Female,0.01771886135622238
+numeric__pulse_rate,0.013371435900296401
+categorical__gender_Male,0.0028210923875061156
+numeric__family_diabetes,0.0005021025685903927
+numeric__cardiovascular_disease,0.00048498944674308097
+numeric__family_hypertension,8.23708871224272e-05
+numeric__stroke,0.0
