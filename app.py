@@ -1,4 +1,3 @@
-from django.contrib.admin import display
 from matplotlib.font_manager import font_family_aliases
 import streamlit as st
 import pandas as pd
@@ -251,9 +250,9 @@ def set_background(image_path: Path, opacity: float = 0.11):
             width: 100%;
             min-height: 44px;
         }}
-        [data-testid="stIconMaterial"] {
-        display: none !important;
-    }
+        [data-testid="stIconMaterial"] {{
+            display: none !important;
+        }}
 
         div[data-testid="stDownloadButton"] button p,
         div[data-testid="stDownloadButton"] button span,
