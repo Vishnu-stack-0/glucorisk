@@ -114,28 +114,30 @@ def show_loading_screen(logo_path: Path, duration_ms: int = 2000):
                 pointer-events: none;
             }}
         }}
-        /* Apply Times New Roman throughout the interface */
-        html, body, [class*="st-"],
-        [data-testid="stApp"],
-        [data-testid="stMarkdownContainer"],
-        [data-testid="stWidgetLabel"],
-        [data-testid="stCaptionContainer"],
-        [data-testid="stAlert"],
-        [data-testid="stExpander"],
+        
+        /* FIXED CSS: Apply Times New Roman safely without breaking layouts */
+        html, body, 
+        [data-testid="stApp"], 
+        [data-testid="stMarkdownContainer"], 
+        [data-testid="stWidgetLabel"], 
+        [data-testid="stCaptionContainer"], 
+        [data-testid="stAlert"], 
+        [data-testid="stExpander"], 
         input, textarea, button,
-        label, p, span, div,
-        h1, h2, h3, h4, h5, h6,
+        label, p, h1, h2, h3, h4, h5, h6,
         th, td {{
             font-family: "Times New Roman", Times, serif !important;
         }}
+        
+        [data-testid="stExpander"] summary span {{
+            font-family: "Times New Roman", Times, serif !important;
+        }}
 
-        /* Buttons */
         .stButton button,
         .stDownloadButton button {{
             font-family: "Times New Roman", Times, serif !important;
         }}
 
-        /* Tables */
         table, th, td {{
             font-family: "Times New Roman", Times, serif !important;
         }}
@@ -234,7 +236,8 @@ def set_background(image_path: Path, opacity: float = 0.11):
         div[data-baseweb="menu"] li:hover {{
             background-color: #e0f2fe;
         }}
-                /* Readable download buttons in light and dark themes */
+        
+        /* Readable download buttons in light and dark themes */
         div[data-testid="stDownloadButton"] button {{
             background-color: #0f766e !important;
             color: #ffffff !important;
@@ -256,28 +259,30 @@ def set_background(image_path: Path, opacity: float = 0.11):
             background-color: #115e59 !important;
             border-color: #115e59 !important;
         }}
-                /* Apply Times New Roman throughout the interface */
-        html, body, [class*="st-"],
-        [data-testid="stApp"],
-        [data-testid="stMarkdownContainer"],
-        [data-testid="stWidgetLabel"],
-        [data-testid="stCaptionContainer"],
-        [data-testid="stAlert"],
-        [data-testid="stExpander"],
+        
+        /* FIXED CSS: Apply Times New Roman safely without breaking layouts */
+        html, body, 
+        [data-testid="stApp"], 
+        [data-testid="stMarkdownContainer"], 
+        [data-testid="stWidgetLabel"], 
+        [data-testid="stCaptionContainer"], 
+        [data-testid="stAlert"], 
+        [data-testid="stExpander"], 
         input, textarea, button,
-        label, p, span, div,
-        h1, h2, h3, h4, h5, h6,
+        label, p, h1, h2, h3, h4, h5, h6,
         th, td {{
             font-family: "Times New Roman", Times, serif !important;
         }}
+        
+        [data-testid="stExpander"] summary span {{
+            font-family: "Times New Roman", Times, serif !important;
+        }}
 
-        /* Buttons */
         .stButton button,
         .stDownloadButton button {{
             font-family: "Times New Roman", Times, serif !important;
         }}
 
-        /* Tables */
         table, th, td {{
             font-family: "Times New Roman", Times, serif !important;
         }}
@@ -357,7 +362,7 @@ st.caption(
     "Enter your details below to receive an estimate of your diabetes risk. "
 )
 
-with st.expander("Before You Begin: Understanding Your Health Details"):
+with st.expander("Before You Begin: Health Details"):
     st.markdown(
         """
         | Measurement | General reference | Unit |
@@ -538,10 +543,6 @@ if submitted:
         )
 
     st.progress(min(max(int(prob * 100), 0), 100))
-    # st.caption(
-    #     "This is a model estimate, not a medical diagnosis. "
-    #     "Consult a qualified healthcare professional for interpretation."
-    # )
 
     # Clinical reference flags
     flags = []
@@ -681,11 +682,6 @@ if submitted:
         st.session_state["shap_plot_png"] = shap_buffer.getvalue()
 
         plt.close("all")
-
-        # st.caption(
-        #     "SHAP values explain how transformed model features contribute "
-        #     "to the model output. They do not establish medical causation."
-        # )
 
     except Exception as exc:
         st.warning(
