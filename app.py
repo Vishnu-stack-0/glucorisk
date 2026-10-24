@@ -76,9 +76,6 @@ def show_loading_screen(logo_path: Path, duration_ms: int = 2000):
             animation: fadeOutSplash 0.7s ease-out
                        {duration_ms}ms forwards;
         }}
-        [data-testid="stIconMaterial"] {{
-        display: none !important;
-    }}
         .splash-logo {{
             width: 120px;
             height: 120px;
@@ -143,6 +140,11 @@ def show_loading_screen(logo_path: Path, duration_ms: int = 2000):
 
         table, th, td {{
             font-family: "Times New Roman", Times, serif !important;
+        }}
+        
+        /* Hide broken material icons */
+        [data-testid="stIconMaterial"] {{
+            display: none !important;
         }}
         </style>
         <div id="splash-screen">
@@ -250,9 +252,6 @@ def set_background(image_path: Path, opacity: float = 0.11):
             width: 100%;
             min-height: 44px;
         }}
-        [data-testid="stIconMaterial"] {{
-            display: none !important;
-        }}
 
         div[data-testid="stDownloadButton"] button p,
         div[data-testid="stDownloadButton"] button span,
@@ -291,6 +290,11 @@ def set_background(image_path: Path, opacity: float = 0.11):
 
         table, th, td {{
             font-family: "Times New Roman", Times, serif !important;
+        }}
+        
+        /* Hide broken material icons */
+        [data-testid="stIconMaterial"] {{
+            display: none !important;
         }}
         </style>
         """,
@@ -368,6 +372,7 @@ st.caption(
     "Enter your details below to receive an estimate of your diabetes risk. "
 )
 
+# CLEAN LABEL: Removed HTML/Markdown that was causing the "arr" glitch
 with st.expander("Before You Begin: Health Details"):
     st.markdown(
         """
