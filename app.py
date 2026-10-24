@@ -1,5 +1,3 @@
-from tkinter import font
-
 from matplotlib.font_manager import font_family_aliases
 import streamlit as st
 import pandas as pd
