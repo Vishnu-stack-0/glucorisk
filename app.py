@@ -1546,12 +1546,6 @@ else:
                             styles["Heading2"],
                         ),
                         Spacer(1, 8),
-                        Paragraph(
-                            "The chart shows the contribution of "
-                            "transformed model features to the model output. "
-                            "It does not establish medical causation.",
-                            styles["Normal"],
-                        ),
                         Spacer(1, 10),
                     ]
                 )
@@ -1565,15 +1559,6 @@ else:
                 )
                 content.append(shap_image)
                 content.append(Spacer(1, 14))
-
-            content.append(
-                Paragraph(
-                    "<b>Medical disclaimer:</b> This report is "
-                    "informational only and is not a medical diagnosis. "
-                    "Consult a qualified healthcare professional.",
-                    styles["Normal"],
-                )
-            )
 
             document.build(content)
 
