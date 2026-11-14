@@ -9,13 +9,13 @@
     "top_10_features": [
         "numeric__glucose",
         "numeric__hypertensive",
-        "numeric__diastolic_bp",
         "numeric__bmi",
         "numeric__age",
-        "numeric__systolic_bp",
+        "numeric__diastolic_bp",
         "categorical__gender_Female",
+        "numeric__systolic_bp",
         "numeric__pulse_rate",
         "categorical__gender_Male",
-        "numeric__family_diabetes"
+        "numeric__cardiovascular_disease"
     ]
 }
