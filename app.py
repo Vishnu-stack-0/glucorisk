@@ -42,7 +42,7 @@ FONT_STACK = '"Times New Roman", Times, serif'
 st.set_page_config(
     page_title="Diabetes Risk Predictor",
     page_icon=str(LOGO_PATH) if LOGO_PATH.exists() else "🩺",
-    layout="centered",
+    layout="wide",
     initial_sidebar_state="collapsed",
 )
 
@@ -167,7 +167,7 @@ show_loading_screen(LOGO_PATH)
 # -------------------------------------------------
 # 3. BACKGROUND CSS
 # -------------------------------------------------
-def set_background(image_path: Path, opacity: float = 0.11):
+def set_background(image_path: Path, opacity: float = 0.85):
     if not image_path.exists():
         return
 
@@ -177,7 +177,7 @@ def set_background(image_path: Path, opacity: float = 0.11):
     st.markdown(
         f"""
         <style>
-        
+
         .stApp {{
             background-image:
                 linear-gradient(
@@ -206,6 +206,7 @@ def set_background(image_path: Path, opacity: float = 0.11):
             border-radius: 16px;
             padding: 1.4rem 1.2rem;
             box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+            width: 100%;
         }}
 
         .stNumberInput input,
@@ -242,8 +243,8 @@ def set_background(image_path: Path, opacity: float = 0.11):
         div[data-baseweb="menu"] li:hover {{
             background-color: #e0f2fe;
         }}
-        
-        /* Readable download buttons in light and dark themes */
+
+        /* Readable download buttons */
         div[data-testid="stDownloadButton"] button {{
             background-color: #0f766e !important;
             color: #ffffff !important;
@@ -265,21 +266,21 @@ def set_background(image_path: Path, opacity: float = 0.11):
             background-color: #115e59 !important;
             border-color: #115e59 !important;
         }}
-        
-        /* FIXED CSS: Apply Times New Roman safely without breaking layouts */
-        html, body, 
-        [data-testid="stApp"], 
-        [data-testid="stMarkdownContainer"], 
-        [data-testid="stWidgetLabel"], 
-        [data-testid="stCaptionContainer"], 
-        [data-testid="stAlert"], 
-        [data-testid="stExpander"], 
+
+        /* Times New Roman font */
+        html, body,
+        [data-testid="stApp"],
+        [data-testid="stMarkdownContainer"],
+        [data-testid="stWidgetLabel"],
+        [data-testid="stCaptionContainer"],
+        [data-testid="stAlert"],
+        [data-testid="stExpander"],
         input, textarea, button,
         label, p, h1, h2, h3, h4, h5, h6,
         th, td {{
             font-family: "Times New Roman", Times, serif !important;
         }}
-        
+
         [data-testid="stExpander"] summary span {{
             font-family: "Times New Roman", Times, serif !important;
         }}
@@ -292,15 +293,105 @@ def set_background(image_path: Path, opacity: float = 0.11):
         table, th, td {{
             font-family: "Times New Roman", Times, serif !important;
         }}
-        
+
         /* Hide broken material icons */
         [data-testid="stIconMaterial"] {{
             display: none !important;
         }}
+
+        /* =========================================
+        RESPONSIVE WEBSITE LAYOUT
+        ========================================= */
+
+        .block-container {{
+            width: 100%;
+            max-width: 1500px;
+            padding-top: 2rem;
+            padding-bottom: 3rem;
+            padding-left: 4%;
+            padding-right: 4%;
+            margin: auto;
+        }}
+
+        [data-testid="stHorizontalBlock"] {{
+            gap: 1.5rem;
+        }}
+
+        h1 {{
+            font-size: clamp(1.8rem, 3vw, 2.6rem) !important;
+        }}
+
+        h2 {{
+            font-size: clamp(1.4rem, 2.5vw, 2rem) !important;
+        }}
+
+        h3 {{
+            font-size: clamp(1.15rem, 2vw, 1.5rem) !important;
+        }}
+
+        /* TABLET AND MOBILE */
+        @media screen and (max-width: 768px) {{
+
+            .block-container {{
+                padding-top: 1rem;
+                padding-bottom: 2rem;
+                padding-left: 4%;
+                padding-right: 4%;
+            }}
+
+            [data-testid="stHorizontalBlock"] {{
+                gap: 0.5rem;
+            }}
+
+            div[data-testid="stForm"] {{
+                padding: 1rem 0.8rem;
+                border-radius: 12px;
+            }}
+
+            h1 {{
+                font-size: 1.7rem !important;
+            }}
+
+            h2 {{
+                font-size: 1.35rem !important;
+            }}
+
+            h3 {{
+                font-size: 1.1rem !important;
+            }}
+
+            input, button {{
+                font-size: 16px !important;
+            }}
+
+            .stDownloadButton button,
+            .stFormSubmitButton button {{
+                min-height: 46px;
+            }}
+        }}
+
+        /* SMALL MOBILE SCREENS */
+        @media screen and (max-width: 480px) {{
+
+            .block-container {{
+                padding-left: 3%;
+                padding-right: 3%;
+            }}
+
+            div[data-testid="stForm"] {{
+                padding: 0.8rem 0.6rem;
+            }}
+
+            [data-testid="stHorizontalBlock"] {{
+                gap: 0.3rem;
+            }}
+        }}
+
         </style>
         """,
-        unsafe_allow_html=True,
+        unsafe_allow_html=True
     )
+
 
 
 set_background(LOGO_PATH)
